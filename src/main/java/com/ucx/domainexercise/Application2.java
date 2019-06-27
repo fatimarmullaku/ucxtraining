@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Application {
+public class Application2 {
     public static void main(String[] args) {
         StorageService<Costumer, Integer> ssi = new StorageServiceImpl<>();
 
