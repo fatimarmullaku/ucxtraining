@@ -5,7 +5,7 @@ public interface StorageService<T, U> {
 //    Invoice generateInvoice(List<LineItem> list, Costumer costumer);
 
     T find(U id);
-    void update(T t);
+    void update(T t) throws NotFoundException;
     void remove(T t);
-    T save(T t);
+    T save(T t) throws DuplicateFoundException;
 }

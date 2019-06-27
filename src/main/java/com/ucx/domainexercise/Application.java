@@ -11,20 +11,20 @@ import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
-        StorageService<Costumer, Integer> ssi = new StorageServiceImpl<>();
 
-        Costumer costumer = new Costumer(1, "Filani");
+
+        /*Costumer costumer = new Costumer(1, "Filani");
 
         ssi.save(costumer);
         System.out.println(ssi.find(1));
 
         costumer.setName("FIsteku");
         ssi.update(costumer);
-        System.out.println(ssi.find(1));
+        System.out.println(ssi.find(1));*/
 
 //        try{
-            Costumer costumer1 = new Costumer(3, "qehrlqelk");
-            ssi.update(costumer1);
+//            Costumer costumer1 = new Costumer(3, "qehrlqelk");
+//            ssi.update(costumer1);
 //        } catch (Exception ex){
 //            System.err.println(ex.getMessage());
 //        }

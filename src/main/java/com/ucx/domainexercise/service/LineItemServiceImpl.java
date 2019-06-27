@@ -2,6 +2,7 @@ package com.ucx.domainexercise.service;
 
 import com.ucx.domainexercise.domain.LineItem;
 import com.ucx.domainexercise.domain.Product;
+import com.ucx.domainexercise.repository.DuplicateFoundException;
 import com.ucx.domainexercise.repository.StorageService;
 import com.ucx.domainexercise.repository.StorageServiceImpl;
 
@@ -10,7 +11,7 @@ public class LineItemServiceImpl implements LineItemService{
     private StorageService<LineItem, Integer> storageService = new StorageServiceImpl<>();
 
     @Override
-    public LineItem create(Product product) {
+    public LineItem create(Product product) throws DuplicateFoundException {
         if(product == null){
             throw new RuntimeException("Cannot create LineItem, Product is missing");
         }

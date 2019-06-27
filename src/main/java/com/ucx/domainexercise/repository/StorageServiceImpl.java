@@ -14,7 +14,8 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
     @Override
     public T find(U id) {
         if (id == null) {
-            throw new RuntimeException("Cannot find Object, ID is missing");
+//            throw new RuntimeException("Cannot find Object, ID is missing");
+            throw new IllegalArgumentException("Cannot find Object, ID is missing");
         }
         T t = null;
 
@@ -30,10 +31,10 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
     }
 
     @Override
-    public void update(T t) {
+    public void update(T t) throws NotFoundException{
         int index = -1;
         if(t == null){
-            throw new RuntimeException("Element cannot be null");
+            throw new IllegalArgumentException("Element cannot be null");
         }
         for (int i = 0; i < list.size(); i++) {
             if(list.get(i).getID().equals(t.getID())){
@@ -42,7 +43,7 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
             }
         }
         if(index == -1){
-            throw new RuntimeException("Element couldn't be found");
+            throw new NotFoundException("Element couldn't be found");
         }
 
         list.set(index, t);
@@ -51,19 +52,19 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
     @Override
     public void remove(T t) {
         if (t == null) {
-            throw new RuntimeException("Element cannot be null");
+            throw new IllegalArgumentException("Element cannot be null");
 
         }
         list.remove(t);
     }
 
     @Override
-    public T save(T t) {
+    public T save(T t) throws DuplicateFoundException{
         if (t == null){
-            throw new RuntimeException("Element cannot be null");
+            throw new IllegalArgumentException("Element cannot be null");
         }
         if(find(t.getID()) != null){
-            throw new RuntimeException("Element already exists");
+            throw new DuplicateFoundException("Element already exists");
         }
             list.add(t);
             return t;
