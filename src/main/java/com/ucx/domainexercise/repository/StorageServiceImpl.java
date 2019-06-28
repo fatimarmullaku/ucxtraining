@@ -31,7 +31,7 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
     }
 
     @Override
-    public void update(T t) throws NotFoundException{
+    public T update(T t) throws NotFoundException{
         int index = -1;
         if(t == null){
             throw new IllegalArgumentException("Element cannot be null");
@@ -47,15 +47,16 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
         }
 
         list.set(index, t);
+        return find(t.getID());
     }
 
     @Override
-    public void remove(T t) {
+    public void remove(T t) throws NotFoundException{
         if (t == null) {
             throw new IllegalArgumentException("Element cannot be null");
-
         }
-        list.remove(t);
+        t.setRecordStatus(RecordStatus.INACTIVE);
+        update(t);
     }
 
     @Override

@@ -1,28 +1,16 @@
 package com.ucx.domainexercise.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
 public class LineItem extends BaseModel<Integer> {
-    private final Invoice invoice;
-    private final Product product;
-    private final int quantity;
-
-    public LineItem(Integer id, Invoice invoice, Product product, int quantity) {
-        super(id);
-        this.invoice = invoice;
-        this.product = product;
-        this.quantity = quantity;
-    }
-
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
+    private Invoice invoice;
+    private Product product;
+    private Integer quantity;
 
     @Override
     public String toString() {

@@ -1,18 +1,11 @@
 package com.ucx.domainexercise.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public abstract class BaseModel<T> {
-
     private T ID;
-
-    public T getID() {
-        return ID;
-    }
-
-    public void setID(T ID) {
-        this.ID = ID;
-    }
-
-    public BaseModel(T ID) {
-        this.ID = ID;
-    }
+    private RecordStatus recordStatus;
 }

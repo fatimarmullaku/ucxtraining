@@ -1,26 +1,19 @@
 package com.ucx.domainexercise.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
 public class Product extends BaseModel<String> {
-    private final String name;
-    private final double unitPrice;
-    private final boolean inStock;
+    private String name;
+    private Double unitPrice;
+    private Boolean inStock;
 
-    public Product(String id, String name, double unitPrice, boolean inStock) {
-        super(id);
-        this.name = name;
-        this.unitPrice = unitPrice;
-        this.inStock = inStock;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public boolean isInStock() {
-        return inStock;
+    @Override
+    public String toString() {
+        return String.format("%s, %f, in stock: %b", getName(), getUnitPrice(), getInStock());
     }
 }
