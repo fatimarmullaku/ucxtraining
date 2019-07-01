@@ -21,7 +21,7 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
 
         for (T element :
                 list) {
-            if (element.getID().equals(id)) {
+            if (element.getId().equals(id)) {
                 t = element;
                 break;
             }
@@ -37,7 +37,7 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
             throw new IllegalArgumentException("Element cannot be null");
         }
         for (int i = 0; i < list.size(); i++) {
-            if(list.get(i).getID().equals(t.getID())){
+            if(list.get(i).getId().equals(t.getId())){
                 index = i;
                 break;
             }
@@ -47,7 +47,7 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
         }
 
         list.set(index, t);
-        return find(t.getID());
+        return find(t.getId());
     }
 
     @Override
@@ -64,7 +64,7 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
         if (t == null){
             throw new IllegalArgumentException("Element cannot be null");
         }
-        if(find(t.getID()) != null){
+        if(find(t.getId()) != null){
             throw new DuplicateFoundException("Element already exists");
         }
             list.add(t);

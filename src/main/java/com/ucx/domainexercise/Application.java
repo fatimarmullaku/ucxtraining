@@ -2,19 +2,16 @@ package com.ucx.domainexercise;
 
 import com.ucx.domainexercise.domain.Costumer;
 import com.ucx.domainexercise.domain.Product;
+import com.ucx.domainexercise.domain.RecordStatus;
 import com.ucx.domainexercise.repository.DuplicateFoundException;
 import com.ucx.domainexercise.repository.NotFoundException;
-import com.ucx.domainexercise.repository.StorageService;
-import com.ucx.domainexercise.repository.StorageServiceImpl;
 import com.ucx.domainexercise.service.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class Application {
 
@@ -24,8 +21,11 @@ public class Application {
 
     public static void main(String[] args) {
 
-        Costumer costumer = new Costumer("Filani");
-        costumer.setID(1);
+        Costumer costumer = Costumer.builder()
+                            .id(1)
+                            .recordStatus(RecordStatus.ACTIVE)
+                            .name("Filani")
+                            .build();
         Costumer createdCostumer = null;
         try {
             createdCostumer = costumerService.create(costumer);
@@ -57,12 +57,42 @@ public class Application {
         }
 
         List<Product> productList = new ArrayList<>();
-        productList.add(new Product("Produkti 1", 8D, true));
-        productList.add(new Product("Produkti 2", 5D, true));
-        productList.add(new Product("Produkti 3", 7D, true));
-        productList.add(new Product("Produkti 4", 2D, true));
+        productList.add(Product.builder()
+                        .id(1)
+                        .recordStatus(RecordStatus.ACTIVE)
+                        .name("Produkti 1")
+                        .unitPrice(8D)
+                        .inStock(true)
+                        .build());
+        productList.add(Product.builder()
+                .id(2)
+                .recordStatus(RecordStatus.ACTIVE)
+                .name("Produkti 2")
+                .unitPrice(5D)
+                .inStock(true)
+                .build());
+        productList.add(Product.builder()
+                .id(3)
+                .recordStatus(RecordStatus.ACTIVE)
+                .name("Produkti 3")
+                .unitPrice(7D)
+                .inStock(true)
+                .build());
+        productList.add(Product.builder()
+                .id(4)
+                .recordStatus(RecordStatus.ACTIVE)
+                .name("Produkti 4")
+                .unitPrice(2D)
+                .inStock(true)
+                .build());
 
-        List<Product> sortedList = productService.sortBy(productList, Comparator.comparing(e -> e.getUnitPrice()), Order.ASC);
+        List<Product> sortedList = productService.sortBy(productList, Comparator.comparing(e -> e.getUnitPrice()), SortOrder.ASC);
         LOGGER.log(Level.INFO, sortedList.toString());
+
+        Costumer c = Costumer.builder()
+                    .id(1)
+                    .name("Filani")
+                    .recordStatus(RecordStatus.ACTIVE)
+                    .build();
     }
 }

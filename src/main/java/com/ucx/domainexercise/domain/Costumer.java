@@ -1,15 +1,20 @@
 package com.ucx.domainexercise.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class Costumer extends BaseModel<Integer>{
     private String name;
 
+    @Builder
+    public Costumer(Integer id, String name, RecordStatus recordStatus) {
+        super(id, recordStatus);
+        this.name = name;
+    }
 
     @Override
     public String toString() {
