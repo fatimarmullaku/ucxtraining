@@ -1,5 +1,7 @@
 package com.ucx.domainexercise.service;
 
+import com.ucx.domainexercise.domain.Costumer;
+
 public class ServiceFactory {
     public static final CostumerService getCostumerService(){
         return new CostumerServiceImpl();
@@ -15,5 +17,9 @@ public class ServiceFactory {
 
     public static final ProductService getProductService(){
         return new ProductServiceImpl();
+    }
+
+    public static final PurchaseService getPurchaseService(Costumer costumer) {
+        return new PurchaseServiceImpl(costumer);
     }
 }

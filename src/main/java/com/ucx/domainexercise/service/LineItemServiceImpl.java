@@ -22,7 +22,7 @@ public class LineItemServiceImpl implements LineItemService{
         }
 
         return storageService.save(LineItem.builder()
-                                    .id(1)
+                                    .id((int)(Math.random() * 100 + 1))
                                     .recordStatus(RecordStatus.ACTIVE)
                                     .product(product)
                                     .quantity(quantity)

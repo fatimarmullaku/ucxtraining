@@ -2,8 +2,6 @@ package com.ucx.domainexercise;
 
 import org.junit.*;
 
-import java.sql.SQLException;
-
 import static org.junit.Assert.*;
 
 public class UtilTest {

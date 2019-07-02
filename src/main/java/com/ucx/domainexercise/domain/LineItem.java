@@ -22,6 +22,6 @@ public class LineItem extends BaseModel<Integer> {
 
     @Override
     public String toString() {
-        return String.format("Invoice: %s, Product: %s, Quantity: %d", getInvoice(), getProduct(), getQuantity());
+        return String.format("Product: %s, Quantity: %d", getProduct(), getQuantity());
     }
 }
