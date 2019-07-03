@@ -1,24 +1,26 @@
 package com.ucx.domainexercise.service;
 
-import com.ucx.domainexercise.domain.Costumer;
-import com.ucx.domainexercise.domain.Invoice;
-import com.ucx.domainexercise.domain.LineItem;
-import com.ucx.domainexercise.domain.RecordStatus;
+import com.ucx.domainexercise.entity.Costumer;
+import com.ucx.domainexercise.entity.Invoice;
+import com.ucx.domainexercise.entity.LineItem;
+import com.ucx.domainexercise.type.RecordStatus;
 import com.ucx.domainexercise.repository.DuplicateFoundException;
 import com.ucx.domainexercise.repository.RepositoryFactory;
 import com.ucx.domainexercise.repository.StorageService;
-import com.ucx.domainexercise.repository.StorageServiceImpl;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class InvoiceServiceImpl implements InvoiceService {
 
     private StorageService<Invoice, Integer> storageService = RepositoryFactory.getStorageService();
 
+    public static InvoiceService getInstance(){
+        return new InvoiceServiceImpl();
+    }
+
     @Override
-    public Invoice generateInvoice(List<LineItem> lineItemList, Costumer costumer) throws DuplicateFoundException {
+    public Invoice createInvoice(List<LineItem> lineItemList, Costumer costumer) throws DuplicateFoundException {
         if (lineItemList == null || lineItemList.isEmpty()) {
             throw new IllegalArgumentException("Cannot print Invoice, list is missing");
         }

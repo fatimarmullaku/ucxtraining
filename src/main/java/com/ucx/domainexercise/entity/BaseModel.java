@@ -1,5 +1,6 @@
-package com.ucx.domainexercise.domain;
+package com.ucx.domainexercise.entity;
 
+import com.ucx.domainexercise.type.RecordStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

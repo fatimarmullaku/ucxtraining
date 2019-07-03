@@ -1,4 +1,4 @@
-package com.ucx.domainexercise.service;
+package com.ucx.domainexercise.type;
 
 public enum SortOrder {
     ASC,

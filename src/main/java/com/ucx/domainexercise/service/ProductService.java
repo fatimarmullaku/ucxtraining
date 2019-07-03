@@ -1,7 +1,8 @@
 package com.ucx.domainexercise.service;
 
-import com.ucx.domainexercise.domain.Product;
+import com.ucx.domainexercise.entity.Product;
 import com.ucx.domainexercise.repository.DuplicateFoundException;
+import com.ucx.domainexercise.type.SortOrder;
 
 import java.util.Comparator;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.ucx.domainexercise.domain;
+package com.ucx.domainexercise.type;
 
 public enum RecordStatus {
     ACTIVE,

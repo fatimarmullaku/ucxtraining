@@ -1,6 +1,7 @@
 package com.ucx.domainexercise.repository;
 
-import com.ucx.domainexercise.domain.*;
+import com.ucx.domainexercise.entity.*;
+import com.ucx.domainexercise.type.RecordStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,7 +84,7 @@ public class StorageServiceImpl<T extends BaseModel<U>, U> implements StorageSer
 //    }
 //
 //    @Override
-//    public Invoice generateInvoice(List<LineItem> list, Costumer costumer) {
+//    public Invoice createInvoice(List<LineItem> list, Costumer costumer) {
 //        List<LineItem> returnList = new ArrayList<>();
 //
 //        return null;

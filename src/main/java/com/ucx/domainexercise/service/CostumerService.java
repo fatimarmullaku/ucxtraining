@@ -1,6 +1,6 @@
 package com.ucx.domainexercise.service;
 
-import com.ucx.domainexercise.domain.Costumer;
+import com.ucx.domainexercise.entity.Costumer;
 import com.ucx.domainexercise.repository.DuplicateFoundException;
 import com.ucx.domainexercise.repository.NotFoundException;
 

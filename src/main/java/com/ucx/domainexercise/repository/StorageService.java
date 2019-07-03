@@ -2,7 +2,7 @@ package com.ucx.domainexercise.repository;
 
 public interface StorageService<T, U> {
 //    LineItem buy(Product product);
-//    Invoice generateInvoice(List<LineItem> list, Costumer costumer);
+//    Invoice createInvoice(List<LineItem> list, Costumer costumer);
 
     T find(U id);
     T update(T t) throws NotFoundException;

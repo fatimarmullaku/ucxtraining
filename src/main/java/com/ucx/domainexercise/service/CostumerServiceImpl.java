@@ -1,11 +1,15 @@
 package com.ucx.domainexercise.service;
 
-import com.ucx.domainexercise.domain.Costumer;
+import com.ucx.domainexercise.entity.Costumer;
 import com.ucx.domainexercise.repository.*;
 
 public class CostumerServiceImpl implements CostumerService {
 
     private StorageService<Costumer, Integer> storageService = RepositoryFactory.getStorageService();
+
+    public static CostumerService getInstance(){
+        return new CostumerServiceImpl();
+    }
 
     @Override
     public Costumer create(Costumer costumer) throws DuplicateFoundException {

@@ -1,13 +1,14 @@
 package com.ucx.domainexercise;
 
-import com.ucx.domainexercise.domain.*;
+import com.ucx.domainexercise.entity.*;
 import com.ucx.domainexercise.repository.DuplicateFoundException;
 import com.ucx.domainexercise.repository.NotFoundException;
 import com.ucx.domainexercise.service.*;
+import com.ucx.domainexercise.type.RecordStatus;
+import com.ucx.domainexercise.type.SortOrder;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
@@ -16,10 +17,8 @@ import java.util.logging.Logger;
 public class Demo {
 
     private final static Logger LOGGER = Logger.getLogger(Application.class.getName());
-    private static CostumerService costumerService = ServiceFactory.getCostumerService();
-    private static ProductService productService = ServiceFactory.getProductService();
-    private static LineItemService lineItemService = ServiceFactory.getLineItemService();
-    private static InvoiceService invoiceService = ServiceFactory.getInvoiceService();
+    private static CostumerService costumerService = CostumerServiceImpl.getInstance();
+    private static ProductService productService = ProductServiceImpl.getInstance();
     private static PurchaseService purchaseService;
 
     public static void start(){
@@ -89,7 +88,7 @@ public class Demo {
 
         /* ---------------------Buy Product------------------------------ */
         try {
-            purchaseService = ServiceFactory.getPurchaseService(costumer);
+            purchaseService = PurchaseServiceImpl.of(costumer);
             purchaseService.addToCart(productList.get(0), 2);
             purchaseService.addToCart(productList.get(1), 3);
             purchaseService.buy();
