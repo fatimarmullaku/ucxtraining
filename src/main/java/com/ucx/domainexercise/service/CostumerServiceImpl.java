@@ -1,7 +1,10 @@
 package com.ucx.domainexercise.service;
 
 import com.ucx.domainexercise.entity.Costumer;
-import com.ucx.domainexercise.repository.*;
+import com.ucx.shop.storage.DuplicateFoundException;
+import com.ucx.shop.storage.NotFoundException;
+import com.ucx.shop.storage.RepositoryFactory;
+import com.ucx.shop.storage.StorageService;
 
 public class CostumerServiceImpl implements CostumerService {
 

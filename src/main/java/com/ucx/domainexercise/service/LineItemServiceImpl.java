@@ -2,10 +2,10 @@ package com.ucx.domainexercise.service;
 
 import com.ucx.domainexercise.entity.LineItem;
 import com.ucx.domainexercise.entity.Product;
-import com.ucx.domainexercise.type.RecordStatus;
-import com.ucx.domainexercise.repository.DuplicateFoundException;
-import com.ucx.domainexercise.repository.RepositoryFactory;
-import com.ucx.domainexercise.repository.StorageService;
+import com.ucx.shop.storage.DuplicateFoundException;
+import com.ucx.shop.storage.RecordStatus;
+import com.ucx.shop.storage.RepositoryFactory;
+import com.ucx.shop.storage.StorageService;
 
 public class LineItemServiceImpl implements LineItemService{
 

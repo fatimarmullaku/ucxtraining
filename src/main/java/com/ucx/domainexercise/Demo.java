@@ -1,11 +1,11 @@
 package com.ucx.domainexercise;
 
 import com.ucx.domainexercise.entity.*;
-import com.ucx.domainexercise.repository.DuplicateFoundException;
-import com.ucx.domainexercise.repository.NotFoundException;
 import com.ucx.domainexercise.service.*;
-import com.ucx.domainexercise.type.RecordStatus;
 import com.ucx.domainexercise.type.SortOrder;
+import com.ucx.shop.storage.DuplicateFoundException;
+import com.ucx.shop.storage.NotFoundException;
+import com.ucx.shop.storage.RecordStatus;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

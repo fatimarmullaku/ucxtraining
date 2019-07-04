@@ -5,7 +5,7 @@ import com.ucx.domainexercise.entity.Costumer;
 import com.ucx.domainexercise.entity.Invoice;
 import com.ucx.domainexercise.entity.LineItem;
 import com.ucx.domainexercise.entity.Product;
-import com.ucx.domainexercise.repository.DuplicateFoundException;
+import com.ucx.shop.storage.DuplicateFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class PurchaseServiceImpl implements PurchaseService {
     private List<LineItem> lineItemList;
     private Costumer costumer;
 
-    public PurchaseServiceImpl(Costumer costumer) {
+    private PurchaseServiceImpl(Costumer costumer) {
         this.costumer = costumer;
         lineItemList = new ArrayList<>();
     }

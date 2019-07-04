@@ -13,6 +13,14 @@
         <maven.compiler.source>11</maven.compiler.source>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>release</id>
+            <name>releaseRepository</name>
+            <url>file://D:/apirelease</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
@@ -30,7 +38,11 @@
             <scope>test</scope>
         </dependency>
 
-
+        <dependency>
+            <groupId>com.ucx.shop</groupId>
+            <artifactId>storage</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
 

@@ -1,8 +1,8 @@
 package com.ucx.domainexercise.service;
 
 import com.ucx.domainexercise.entity.Costumer;
-import com.ucx.domainexercise.repository.DuplicateFoundException;
-import com.ucx.domainexercise.type.RecordStatus;
+import com.ucx.shop.storage.DuplicateFoundException;
+import com.ucx.shop.storage.RecordStatus;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
