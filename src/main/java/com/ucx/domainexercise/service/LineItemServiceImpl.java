@@ -7,14 +7,28 @@ import com.ucx.shop.storage.RecordStatus;
 import com.ucx.shop.storage.RepositoryFactory;
 import com.ucx.shop.storage.StorageService;
 
+/**
+ * This class is an implementation of the LineItemService Interface.
+ */
 public class LineItemServiceImpl implements LineItemService{
 
     private StorageService<LineItem, Integer> storageService = RepositoryFactory.getStorageService();
 
+    /**
+     * This method returns an instance of the LineItemService.
+     * @return
+     */
     public static LineItemService getInstance(){
         return new LineItemServiceImpl();
     }
 
+    /**
+     * This method creates a LineItem with a given Product and quantity of Products.
+     * @param product
+     * @param quantity
+     * @return LineItem
+     * @throws DuplicateFoundException
+     */
     @Override
     public LineItem create(Product product, Integer quantity) throws DuplicateFoundException {
         if(product == null){

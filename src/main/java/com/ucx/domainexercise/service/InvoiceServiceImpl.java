@@ -11,16 +11,29 @@ import com.ucx.shop.storage.StorageService;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ * This class is an implementation of the InvoiceService Interface.
+ */
 public class InvoiceServiceImpl implements InvoiceService {
 
     private StorageService<Invoice, Integer> storageService = RepositoryFactory.getStorageService();
 
+    /** This method returns an instance of InvoiceService.
+     * @return
+     */
     public static InvoiceService getInstance(){
         return new InvoiceServiceImpl();
     }
 
+    /**
+     * This method creates an Invoice with a given LineItem list and a Costumer.
+     * @param lineItemList
+     * @param costumer
+     * @return
+     * @throws DuplicateFoundException
+     */
     @Override
-    public Invoice createInvoice(List<LineItem> lineItemList, Costumer costumer) throws DuplicateFoundException {
+    public Invoice create(List<LineItem> lineItemList, Costumer costumer) throws DuplicateFoundException {
         if (lineItemList == null || lineItemList.isEmpty()) {
             throw new IllegalArgumentException("Cannot print Invoice, list is missing");
         }
@@ -46,8 +59,13 @@ public class InvoiceServiceImpl implements InvoiceService {
         return storageService.save(invoice);
     }
 
+    /**
+     * This method prints an Invoice with a given Invoice id.
+     * @param id
+     * @return
+     */
     @Override
-    public Invoice printInvoice(Integer id) {
+    public Invoice print(Integer id) {
         return storageService.find(id);
     }
 }

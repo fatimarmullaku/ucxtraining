@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This class is an implementation of the PurchaseService Interface.
+ */
 public class PurchaseServiceImpl implements PurchaseService {
 
     private final static Logger LOGGER = Logger.getLogger(Application.class.getName());
@@ -25,18 +28,34 @@ public class PurchaseServiceImpl implements PurchaseService {
         lineItemList = new ArrayList<>();
     }
 
+    /**
+     * This method returns a PurchaseServiceImpl with a given Costumer.
+     * @param costumer
+     * @return
+     */
     public static final PurchaseServiceImpl of(Costumer costumer) {
         return new PurchaseServiceImpl(costumer);
     }
 
+    /**
+     * This method adds to cart a LineItem with a given Product and its quantity.
+     * @param product
+     * @param quantity
+     * @throws DuplicateFoundException
+     */
     @Override
     public void addToCart(Product product, Integer quantity) throws DuplicateFoundException {
         lineItemList.add(lineItemService.create(product, quantity));
     }
 
+    /**
+     * This method processes the buy and returns the generated Invoice.
+     * @return
+     * @throws DuplicateFoundException
+     */
     public Invoice buy() throws DuplicateFoundException{
-        Invoice generatedInvoice = invoiceService.createInvoice(lineItemList, costumer);
-        Invoice printedInvoice = invoiceService.printInvoice(generatedInvoice.getId());
+        Invoice generatedInvoice = invoiceService.create(lineItemList, costumer);
+        Invoice printedInvoice = invoiceService.print(generatedInvoice.getId());
         LOGGER.log(Level.INFO, printedInvoice.toString());
         return printedInvoice;
     }

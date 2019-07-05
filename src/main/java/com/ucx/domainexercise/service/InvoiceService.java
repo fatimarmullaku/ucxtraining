@@ -7,8 +7,11 @@ import com.ucx.shop.storage.DuplicateFoundException;
 
 import java.util.List;
 
+/**
+ * This Interface defines operations related to Invoice.
+ */
 public interface InvoiceService {
 
-    Invoice createInvoice(List<LineItem> lineItemList, Costumer costumer) throws DuplicateFoundException;
-    Invoice printInvoice(Integer id);
+    Invoice create(List<LineItem> lineItemList, Costumer costumer) throws DuplicateFoundException;
+    Invoice print(Integer id);
 }

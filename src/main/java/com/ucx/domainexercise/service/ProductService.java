@@ -7,7 +7,10 @@ import com.ucx.shop.storage.DuplicateFoundException;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * This Interface defines operations regarding Product.
+ */
 public interface ProductService {
-    Product addProduct(Product product) throws DuplicateFoundException;
+    Product create(Product product) throws DuplicateFoundException;
     List<Product> sortBy(List<Product> productList, Comparator<Product> comparator, SortOrder sortOrder);
 }

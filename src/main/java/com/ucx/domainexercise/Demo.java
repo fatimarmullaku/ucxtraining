@@ -6,6 +6,7 @@ import com.ucx.domainexercise.type.SortOrder;
 import com.ucx.shop.storage.DuplicateFoundException;
 import com.ucx.shop.storage.NotFoundException;
 import com.ucx.shop.storage.RecordStatus;
+import com.ucx.shop.storage.RepositoryFactory;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ public class Demo {
     private static PurchaseService purchaseService;
 
     public static void start(){
+
+        List readList = RepositoryFactory.getStorageService().findAll();
 
         /* ---------------------Create Costumer------------------------------ */
         Costumer costumer = Costumer.builder()
@@ -117,5 +120,8 @@ public class Demo {
             LOGGER.severe(e.getMessage());
         }
         /* ---------------------End Remove Costumer------------------------------ */
+
+        System.out.println("\nList Demo starts here -----------------\n");
+        System.out.println(readList);
     }
 }
